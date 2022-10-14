@@ -27,7 +27,7 @@ pipeline {
     }
 
     // In this example, all is built and run from the master
-    agent { node { label 'master' } }
+    agent { node { label 'main' } }
 
     // Pipeline stages
     stages {
@@ -41,8 +41,8 @@ pipeline {
             steps {
                 script {
                     echo "========== Git clone =========="
-                    git branch: 'master',
-                            url: 'git@github.com:eldada/node-git-to-k8s.git'
+                    git branch: 'main',
+                            url: 'https://github.com/Hades11223/playjenkins.git'
 
                     echo "========== Docker build =========="
                     def fullImage = "${registry}/${repository}:${dockerTag}.${env.BUILD_NUMBER}"
