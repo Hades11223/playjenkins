@@ -16,8 +16,8 @@ pipeline {
         nodePath = 'node'
         repository = 'demo'
         registry = 'docker-artifactory-webinar.jfrogdev.co'
-        creds = 'dockerregistrywebinar'
-        artCreds = credentials('dockerregistrywebinar')
+        creds = 'dockerhublogin'
+        artCreds = credentials('dockerhublogin')
 
         helmRepo = 'https://artifactory-webinar.jfrogdev.co/artifactory/helm'
         helmRelease = 'webinar-example'
