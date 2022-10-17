@@ -1,3 +1,2 @@
-FROM node:16-alpine
-
-RUN apk add -U git curl
+FROM httpd:2.4
+COPY ./index.html /usr/local/apache2/htdocs/
