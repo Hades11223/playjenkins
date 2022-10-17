@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = "hades1122/test"
-    registryCredential = '	dockerhublogin'
+    registryCredential = 'dockerhublogin'
     dockerImage = ""
   }
 
@@ -27,7 +27,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "" ) {
+          docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
         }
