@@ -3,38 +3,38 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: myweb
-  name: myweb
+    app: nodejs
+  name: nodejs
   namespace: web
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myweb
+      app: nodejs
   template:
     metadata:
       labels:
-        app: myweb
+        app: nodejs
     spec:
       containers:
       - image: hades1122/test:$BUILD_NUMBER
         imagePullPolicy: Always
-        name: myweb
+        name: nodejs
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: myweb
-  name: myweb
+    app: nodejs
+  name: nodejs
   namespace: web
 spec:
   ports:
   - nodePort: 32223
-    port: 80
+    port: 1337
     protocol: TCP
-    targetPort: 80
+    targetPort: 1337
   selector:
     app: myweb
   type: NodePort
